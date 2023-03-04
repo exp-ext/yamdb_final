@@ -1,7 +1,9 @@
 import os
 from datetime import timedelta
-from dotenv import load_dotenv
+
 from core.views import get_key
+from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
