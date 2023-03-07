@@ -71,7 +71,6 @@ jobs:
             echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env
             echo DJANGO_ALLOWED_HOSTS=${{ secrets.DJANGO_ALLOWED_HOSTS }} >> .env            
             sudo docker compose up -d --build
-            sudo docker compose exec web python3 api_yamdb/manage.py collectstatic --no-input --clear
 
   send_message:
     runs-on: ubuntu-latest
