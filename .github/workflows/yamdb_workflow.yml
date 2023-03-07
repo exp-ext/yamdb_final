@@ -59,7 +59,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             cd yamdb_final/infra/
-            sudo docker compose stop
+            sudo docker compose down
             sudo docker compose rm -f web
             rm .env
             touch .env
