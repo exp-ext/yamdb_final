@@ -58,8 +58,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
+            sudo docker pull expext/yamdb_final:latest
             sudo docker compose stop
-            sudo docker compose rm web
+            sudo docker-compose rm -f web
+            rm .env
             touch .env
             echo POSTGRES_ENGINE=${{ secrets.POSTGRES_ENGINE }} >> .env
             echo POSTGRES_DB=${{ secrets.POSTGRES_DB }} >> .env
@@ -68,7 +70,7 @@ jobs:
             echo POSTGRES_HOST=${{ secrets.POSTGRES_HOST }} >> .env
             echo POSTGRES_PORT=${{ secrets.POSTGRES_PORT }} >> .env
             echo DJANGO_ALLOWED_HOSTS=${{ secrets.DJANGO_ALLOWED_HOSTS }} >> .env
-            sudo docker compose up -d
+            sudo docker-compose up -d --build
             sudo docker compose exec web python manage.py collectstatic --no-input --clear
 
   send_message:
