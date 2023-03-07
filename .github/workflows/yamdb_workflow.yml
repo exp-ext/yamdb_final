@@ -58,8 +58,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull expext/yamdb_final:latest
-            cd infra/
             sudo docker compose stop
             sudo docker compose rm -f web
             rm .env
