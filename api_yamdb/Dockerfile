@@ -12,4 +12,4 @@ COPY api_yamdb /app/
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--chdir", "api_yamdb", "--bind", ":8000", "wsgi:application"]
+CMD ["gunicorn", "--chdir", "api_yamdb", "--bind", ":8000", "api_yamdb.wsgi:application"]
