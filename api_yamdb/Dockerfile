@@ -1,8 +1,8 @@
 FROM python:3.7-slim
 
-COPY ../ /app
+WORKDIR /app
 
-WORKDIR /app/api_yamdb/
+COPY . .
 
 RUN pip install --upgrade pip && \
     pip install -r /app/api_yamdb/requirements.txt --no-cache-dir
