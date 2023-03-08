@@ -1,12 +1,11 @@
-FROM python:3.10-slim
+FROM python:3.7-slim
 
 WORKDIR /app
 
 COPY requirements.txt .
 
-RUN apt-get update && \
-    pip3 install --upgrade pip --no-cache-dir && \
-    pip3 install -r /app/requirements.txt --no-cache-dir
+RUN pip install --upgrade pip && \
+    pip install -r /app/requirements.txt
 
 COPY ./ /app
 
