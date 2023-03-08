@@ -1,6 +1,7 @@
 FROM python:3.10-slim
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1 \
+    DJANGO_SECRET_KEY=DJANGO_SECRET_KEY
 
 WORKDIR /app
 
@@ -9,7 +10,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
         cmake \
         libpq-dev \
         python3-dev \
-    rm -rf /var/lib/apt/lists/*
+        pipenv
 
 COPY requirements.txt .
 
