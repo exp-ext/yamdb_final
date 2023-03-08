@@ -61,7 +61,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            cd yamdb_final/infra/
             sudo docker compose down
             rm .env
             touch .env
