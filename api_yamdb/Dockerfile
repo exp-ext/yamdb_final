@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /app
 WORKDIR /app
 
-COPY requirements.txt /app/
+COPY api_yamdb/requirements.txt /app/
 RUN pip install -r requirements.txt
 
 COPY api_yamdb /app/
