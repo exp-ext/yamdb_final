@@ -2,14 +2,13 @@ FROM python:3.7-slim
 
 ENV PYTHONUNBUFFERED 1
 
-RUN mkdir /app
 WORKDIR /app
 
-COPY api_yamdb/requirements.txt /app/
-RUN pip install -r requirements.txt
+COPY requirements.txt .
 
-COPY api_yamdb /app/
+RUN pip3 install --upgrade pip --no-cache-dir && \
+    pip3 install -r requirements.txt --no-cache-dir
 
-EXPOSE 8000
+COPY ./ /app
 
-CMD ["gunicorn", "--chdir", "api_yamdb", "--bind", ":8000", "api_yamdb.wsgi:application"]
+CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0.0.0.0:8000"]
