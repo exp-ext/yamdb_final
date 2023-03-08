@@ -16,4 +16,3 @@ pytz==2020.1
 sqlparse==0.3.1
 asgiref==3.2.10
 python-dotenv==0.21.1
-whitenoise==6.3.0 
