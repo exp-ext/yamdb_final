@@ -95,6 +95,8 @@
 При удалении объекта жанра Genre не нужно удалять связанные с этим жанром произведения.
 ___
 
+**Более подробно по запросам смотрите в [Redoc](http://158.160.32.230/redoc/)**
+___
 ## Технологии
  - Python 3.7
  - Django 2.2.16
@@ -173,10 +175,6 @@ docker-compose up -d --build
     ```bash
     docker-compose exec web python manage.py migrate
     ```
-    * собрать статику проекта:
-    ```bash
-    docker-compose exec web python manage.py collectstatic --no-input
-    ```  
     * Создать суперпользователя Django, после запроса от терминала ввести логин и пароль для суперпользователя:
     ```bash
     docker-compose exec web python manage.py createsuperuser
